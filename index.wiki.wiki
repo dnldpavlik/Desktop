@@ -1,0 +1,42 @@
+= Desktop Wiki Index =
+
+
+== Time Line ==
+7/19/2012
+ - Design of the Add Person screen, has gone through several revisions. I think I finally have arrived at a good deisign.
+ - Navigation for the Contacts Module has changed from what I had thought of initially, and think this navigation change is for the better.
+
+{{{ Navigation
+                         +---------------------+
+                         | Contact Module View |
+                         +---------------------+
+                                    ^
+                                    |
+      +-----------------+-----------+--------+---------------------+
+      |                 |                    |                     |
++-----+------+   +------+------+   +---------+---------+   +-------+-------+
+| Group View |   | People View |   | Organization View |   | Add User View |
++------------+   +-------------+   +-------------------+   +---------------+
+                        ^                    ^
+                        |                    |
+                        |                    |
+                +-------+------+   +---------+---------+
+                | Contact View |   | Organization View |
+                +--------------+   +-------------------+
+}}}
+
+ - Contact Module View Features
+   - Add Person 
+   - Groups 
+ - Models 
+   - Digital representation of a physical object
+ - Views
+   - View the skin of the View Model that reacts to the view model
+ - View Models
+   - Functional derived model that provides the backing to the view
+ - Controller
+   - Orcastration of application control flow
+ - Service
+   - Data Communication classes that get the data from what ever sources exist
+ - Commands
+   - Actions to be performed on a view

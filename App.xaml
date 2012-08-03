@@ -1,0 +1,26 @@
+﻿<Application
+	x:Class="DonPavlik.Desktop.App"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:infrastructure="clr-namespace:DonPavlik.Desktop.Infrastructure">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<!--<ResourceDictionary
+					Source="Resource Dictionaries/CoreStyles.xaml" />
+				<ResourceDictionary
+					Source="Resource Dictionaries/Styles.xaml" />
+				<ResourceDictionary
+					Source="Resource Dictionaries/Fonts.xaml" />
+				<ResourceDictionary
+					Source="Resource Dictionaries/Brushes.xaml" />-->
+				<ResourceDictionary
+					Source="Resource Dictionaries/Metro1.xaml" />
+				<ResourceDictionary>
+					<infrastructure:DesktopBootstrapper
+						x:Key="bootstrapper" />
+				</ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>
