@@ -164,10 +164,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Desktop.Contacts\Desktop.Contacts.csproj">
-      <Project>{2a06da6d-785e-46a1-a7a7-77088c641f2a}</Project>
-      <Name>Desktop.Contacts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Desktop.Infrastructure\Desktop.Infrastructure.csproj">
       <Project>{f2ccb7df-e34a-4e93-ac49-678f191364cd}</Project>
       <Name>Desktop.Infrastructure</Name>

@@ -2,13 +2,14 @@
 namespace DonPavlik.Desktop.Infrastructure
 {
 	using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.Linq;
-using System.Reflection;
-using System.Windows.Threading;
-using Caliburn.Micro;
+	using System.Collections.Generic;
+	using System.ComponentModel.Composition;
+	using System.ComponentModel.Composition.Hosting;
+	using System.IO;
+	using System.Linq;
+	using System.Reflection;
+	using System.Windows.Threading;
+	using Caliburn.Micro;
 
 	public class DesktopBootstrapper : Bootstrapper<IShell>
 	{
@@ -28,7 +29,12 @@ using Caliburn.Micro;
 		protected override IEnumerable<Assembly> SelectAssemblies()
 		{
 			List<Assembly> assemblies = new List<Assembly>();
-			assemblies.Add(Assembly.LoadFrom("DonPavlik.Desktop.Contacts.dll"));
+
+			foreach (string assembly in this.GetModuleAssemblyFileNames())
+			{
+				assemblies.Add(Assembly.LoadFile(assembly));
+			}
+
 			assemblies.Add(Assembly.GetExecutingAssembly());
 			return assemblies;
 		}
@@ -54,9 +60,20 @@ using Caliburn.Micro;
 			Container.Instance.SatisfyImportsOnce(instance);
 		}
 
-		protected override void OnUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e) 
+		protected override void OnUnhandledException(
+			object sender, 
+			DispatcherUnhandledExceptionEventArgs e) 
 		{
 			System.Windows.MessageBox.Show(e.Exception.Message);
+		}
+
+		private List<string> GetModuleAssemblyFileNames()
+		{
+			string initialDirectory = 
+				Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+			//string moduleDirectory = Path.Combine(initialDirectory, "Modules");
+
+			return Directory.GetFiles(initialDirectory, "DonPavlik.Desktop.*.dll").ToList();
 		}
 	}
 }
