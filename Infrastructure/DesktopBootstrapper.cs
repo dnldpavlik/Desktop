@@ -71,7 +71,6 @@ namespace DonPavlik.Desktop.Infrastructure
 		{
 			string initialDirectory = 
 				Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-			//string moduleDirectory = Path.Combine(initialDirectory, "Modules");
 
 			return Directory.GetFiles(initialDirectory, "DonPavlik.Desktop.*.dll").ToList();
 		}

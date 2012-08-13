@@ -1,0 +1,137 @@
+= Desktop Wiki Index =
+
+
+== Time Line ==
+7/19/2012
+ - Design of the Add Person screen, has gone through several revisions. I think I finally have arrived at a good deisign.
+ - Navigation for the Contacts Module has changed from what I had thought of initially, and think this navigation change is for the better.
+
+{{{ Navigation
+                         +---------------------+
+                         | Contact Module View |
+                         +---------------------+
+                                    ^
+                                    |
+      +-----------------+-----------+--------+---------------------+
+      |                 |                    |                     |
++-----+------+   +------+------+   +---------+---------+   +-------+-------+
+| Group View |   | People View |   | Organization View |   | Add User View |
++------------+   +-------------+   +-------------------+   +---------------+
+                        ^                    ^
+                        |                    |
+                        |                    |
+                +-------+------+   +---------+---------+
+                | Contact View |   | Organization View |
+                +--------------+   +-------------------+
+}}}
+
+ - Contact Module View Features
+   - Add Person 
+   - Groups 
+ - Models 
+   - Digital representation of a physical object
+ - Views
+   - View the skin of the View Model that reacts to the view model
+ - View Models
+   - Functional derived model that provides the backing to the view
+ - Controller
+   - Orcastration of application control flow
+ - Service
+   - Data Communication classes that get the data from what ever sources exist
+ - Commands
+   - Actions to be performed on a view
+8/7/2012
+{{{ View Model Relationships
+
++----------------------------+
+| Contacts Module View Model |
++-------------+--------------+
+              |
+			  +--------------------+---------------------------+
+			  |                    |                           |
+			  V                    V                           V
+    +-------------------+  +---------------------+	+-----------------------------+		  
+    | Groups View Model |  | Add User View Model |  | Add Organization View Model |
+    +---------+---------+  +-----------+---------+  +--------------+--------------+
+              |                        |                           |
+		      |                        V                           V
+		      |            +--------------------+     +-------------------------+  
+              |            | Contact View Model |     | Organization View Model |
+              |            +--------------------+     +-------------------------+
+	 	      |
+		      +--------------------------+
+		      |                          |
+		      V                          V
+    +-------------------+  +--------------------------+
+    | People View Model |  | Organizations View Model |
+    +---------+---------+  +-------------+------------+
+              |                          |
+              V                          V
+    +--------------------+ +-------------------------+
+    | Contact View Model | | Organization View Model |
+    +--------------------+ +-------------------------+
+
+}}}
+
+ - Features for Version 1
+   - Addition of:
+     - Organization 
+	   - Name
+	   - Image
+	 - Contact
+	   - Name
+	   - Gender
+	   - Image
+	   - Date of Birth
+	   - Date of Death
+	   - Email
+   - Edit of:
+     - Organization 
+	   - Name
+	   - Image
+	 - Contact
+	   - Name
+	   - Gender
+	   - Image
+	   - Date of Birth
+	   - Date of Death
+	   - Email
+   - Displaying of all:
+     - Organizations
+	 - Contacts
+
+ - Getting Reactive UI to work the way that I want to is a little difficult, right now.  Running in to an issue where I want the next view to load to be based on the value Active Item for the Group View that is being hosted in the Active Item for Contact Module View Model.
+
+On Load of Contact Module View Model
+ - Just confussed....  
+ -
+
+{{{
+Contact Module View Model :: Constructor
+
+      (*) Constructor
+       |
+       V
+  /---------\
+  | Assign  |
+  | Event   |
+  \----+----/
+       |
+       V
+/-------------\	 
+| Initialize  |
+| Defaults    |
+\------+------/
+       |
+	   V
+/-------------\	 
+| Initialize  |
+| Commands    |
+\------+------/
+       |
+	   V
+      (X)
+
+}}}
+
+
